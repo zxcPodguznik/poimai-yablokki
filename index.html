@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>	</title>
+	<style type="text/css">
+		.sphere {
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			border-radius: 100px;
+			transition: all 0.8s ease-out;
+			top: -150px;
+			transition: 1s;
+		}
+		.scoreStyle{
+			position: absolute;
+			top:10px;
+			left:850px;
+			display: none;
+		}
+		
+	</style>
+</head>
+<body style="background-image: url(sad.jpg); background-size: cover">
+	
+	
+</div>
+<script type="text/javascript">
+	let images = ["abrikos.png", "ananas.png", "granate.png", "kartoshka.png", "yabloko.png"];
+	let topS = 0
+	let y = Math.round(Math.random()*1000)
+	
+
+    for(i=0; i<20; i=i+1){
+    	let index = Math.round(Math.random()*4)
+    	let apple = document.createElement("div")
+    	document.body.appendChild(apple);
+    	apple.classList.add("sphere")
+    	RandomX = Math.round(Math.random()*1200)
+    	apple.style.left = RandomX + "px"
+    	apple.style.backgroundImage = "url(" + images[index] + ")";
+    	apple.style.backgroundSize = "100% 100%"
+    }
+let apples = document.querySelectorAll('.sphere')
+let appleID = 0
+	let changeTop = function(){
+		topS = topS + 150
+		apples[appleID].style.top = topS + 'px'
+
+		apples[appleID].onclick = function(){
+			apples[appleID].style.display = "none"
+			point = point + 1
+			score.innerHTML = point
+		}
+		if(topS>=1000){
+			topS = 0
+			appleID = appleID + 1	
+		}
+		
+	}
+	setInterval(changeTop,500)
+	
+	
+	</script>
+</body>
+</html>
